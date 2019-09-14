@@ -32,6 +32,15 @@ func handleTime(responsewriter http.ResponseWriter, request *http.Request) {
 
 	}
 
+func handleMain(responsewriter http.ResponseWriter, request *http.Request) {
+
+	responsewriter.Header().Set("Content-Type", "text/html")
+	responsewriter.WriteHeader(200)
+	responsewriter.Write([]byte("The main page\n"))
+	fmt.Println("/ page accessed");
+
+}
+
 func main() {
 	http.HandleFunc("/", handleMain)
 	http.HandleFunc("/time", handleTime)
